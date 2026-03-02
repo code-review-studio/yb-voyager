@@ -135,11 +135,11 @@ CREATE TABLE public.binary_pk_table (
 );
 
 -- L. "The Kitchen Sink" PK (Composite including UUID and Enum)
+DROP TABLE IF EXISTS public.kitchen_sink_pk;
+
 DROP TYPE IF EXISTS task_status;
 
 CREATE TYPE task_status AS ENUM ('queued', 'running', 'done');
-
-DROP TABLE IF EXISTS public.kitchen_sink_pk;
 
 CREATE TABLE public.kitchen_sink_pk (
     job_id UUID DEFAULT gen_random_uuid(),
